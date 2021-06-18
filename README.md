@@ -1,4 +1,4 @@
-# REAL ESTATE PROGRAM
+# THE REAL ESTATE PROGRAM
 
 ## Project Overview
 
