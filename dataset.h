@@ -3,16 +3,16 @@
 #define LINE 1000
 #define N 1000
 
-#define Nsize               9
-#define Nid					0
-#define Nlotarea			1
-#define Nstreet				2
+#define Nsize               	9
+#define Nid			0
+#define Nlotarea		1
+#define Nstreet			2
 #define Nneighborhood		3
-#define Nyearbuilt			4
+#define Nyearbuilt		4
 #define Noverallqual		5		
 #define Noverallcond		6	
 #define Nkitchenqual		7
-#define Nsaleprice          8
+#define Nsaleprice          	8
 
 #define overallsize 		10
 #define kitchensize 		5
