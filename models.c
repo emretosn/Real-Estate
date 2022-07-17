@@ -61,10 +61,10 @@ int model_by_similarity(House **houses[], House *new_house)
 	}
     // return if no similar yearbuilt
 	else if(l == 0)
-    {
+	{
 		for(int i = 0; i < k; i++)
 			avg += lot[i].saleprice;
-		
+
 		free(lot);
 		free(yb);
 		free(arr);
@@ -72,7 +72,7 @@ int model_by_similarity(House **houses[], House *new_house)
 	}
     // Return with all the similar houses
 	else
-    {
+    	{
 		for(int i = 0; i < l; i++)
 			avg += yb[i].saleprice;
 	
@@ -87,19 +87,19 @@ int model_by_similarity(House **houses[], House *new_house)
 void create_data_matrice(House **houses[], double **areas, double **prices)
 {
 	int j=0;
-    for(int i=0; i<N; i++)
-    {
-        for (House *tmp = houses[Nid][i]; tmp != NULL; tmp = tmp->next[Nid])
-        {
-            if(tmp!=NULL && tmp->saleprice != 0 && tmp->lotarea != 0)
-            {
-                prices[j][0] = tmp->saleprice;
-                areas[j][0] = 1;
-                areas[j][1] = tmp->lotarea;
-                j++;
-            }
-        }
-    }
+    	for(int i=0; i<N; i++)
+    	{
+        	for (House *tmp = houses[Nid][i]; tmp != NULL; tmp = tmp->next[Nid])
+        	{
+            		if(tmp!=NULL && tmp->saleprice != 0 && tmp->lotarea != 0)
+            		{
+				prices[j][0] = tmp->saleprice;
+				areas[j][0] = 1;
+				areas[j][1] = tmp->lotarea;
+				j++;
+            		}
+        	}
+    	}
 }
 
 // Getting the transpose of a matrix
@@ -205,16 +205,16 @@ void make_prediction(House **houses[], double **X, double **Y, double **W, int d
     {
         for(House *tmp = houses[Nid][i]; tmp != NULL; tmp = tmp->next[Nid])
         {
-			if(tmp!=NULL && tmp->lotarea != 0 && tmp->id != 0)
-            {	
-				X[j][1] = tmp->lotarea;
-				houses_pre[j].id = tmp->id;
-                // The prediction equation
-				Y[j][0] = W[1][0] * X[j][1] + W[0][0];
-				houses_pre[j].saleprice = Y[j][0];
-				houses_pre[j].lotarea = tmp->lotarea;
-				j++;
-			}
+		if(tmp!=NULL && tmp->lotarea != 0 && tmp->id != 0)
+            	{	
+			X[j][1] = tmp->lotarea;
+			houses_pre[j].id = tmp->id;
+                	// The prediction equation
+			Y[j][0] = W[1][0] * X[j][1] + W[0][0];
+			houses_pre[j].saleprice = Y[j][0];
+			houses_pre[j].lotarea = tmp->lotarea;
+			j++;
+		}
         }
     }
     // Saving as a csv file
